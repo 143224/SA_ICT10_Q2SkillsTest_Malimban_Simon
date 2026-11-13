@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Non-Metal Elements Finder</title>
+ 
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+ 
+    <style>
+        * { box-sizing: border-box; }
+ 
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            font-family: "Trebuchet MS", Arial, sans-serif;
+            background: linear-gradient(160deg, #0f766e, #14532d);
+        }
+ 
+        .card {
+            width: 100%;
+            max-width: 560px;
+            background: #fffdf7;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+        }
+ 
+        .card-header {
+            background: #134e4a;
+            color: #ffffff;
+            padding: 26px 24px;
+            border-bottom: 5px solid #f59e0b;
+        }
+ 
+        .card-header h1 { margin: 0; font-size: 1.7rem; letter-spacing: 0.5px; }
+        .card-header p { margin: 6px 0 0; font-size: 0.85rem; color: #b8e6df; }
+ 
+        .card-body { padding: 24px; }
+ 
+        .instructions {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            border-radius: 6px;
+            padding: 12px 14px;
+            font-size: 0.85rem;
+            color: #78350f;
+            margin-bottom: 20px;
+        }
+ 
+        label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.9rem;
+            color: #134e4a;
+            margin-bottom: 8px;
+        }
+ 
+        .search-row { display: flex; gap: 10px; }
+ 
+        input[type="text"] {
+            flex: 1;
+            min-width: 0;
+            padding: 11px 14px;
+            font-size: 1rem;
+            border: 2px solid #99d5cc;
+            border-radius: 10px;
+            outline: none;
+        }
+ 
+        input[type="text"]:focus { border-color: #0f766e; }
+ 
+        button {
+            padding: 11px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #ffffff;
+            background: #0f766e;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+ 
+        button:hover { background: #115e59; }
+ 
+        h2 { margin: 24px 0 10px; font-size: 1.05rem; color: #134e4a; }
+ 
+        .result {
+            background: #f0fdfa;
+            border: 1px solid #99d5cc;
+            border-radius: 10px;
+            padding: 6px 16px;
+            font-size: 0.95rem;
+        }
+ 
+        .result .row {
+            display: flex;
+            justify-content: space-between;
+            padding: 9px 0;
+            border-bottom: 1px dashed #99d5cc;
+        }
+ 
+        .result .row:last-child { border-bottom: none; }
+        .result .label { font-weight: bold; color: #134e4a; }
+ 
+        .result.error {
+            background: #fef2f2;
+            border-color: #fca5a5;
+            color: #b91c1c;
+            padding: 14px 16px;
+        }
+ 
+        .card-footer {
+            text-align: center;
+            padding: 12px;
+            font-size: 0.75rem;
+            color: #6b7280;
+            background: #f3f4f6;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">
+            <h1>Non-Metal Elements</h1>
+            <p>Periodic Table Information Finder</p>
+        </div>
+ 
+        <div class="card-body">
+            <div class="instructions">
+                <strong>Instructions:</strong>
+                Enter the <strong>symbol</strong> of a non-metal element (Example: H, O, Cl, Ne, Xe).
+            </div>
+ 
+            <label for="symbol">Element Symbol</label>
+            <div class="search-row">
+                <input type="text" id="symbol" maxlength="2" autocomplete="off">
+                <button type="button" py-click="check_details">Check Details</button>
+            </div>
+ 
+            <h2>Result</h2>
+            <div class="result" id="result">
+                <div class="row"><span>No result yet.</span></div>
+            </div>
+        </div>
+ 
+        <div class="card-footer">Skills Test • 2nd Quarter</div>
+    </div>
+ 
+    <script type="py" src="./main.py"></script>
+</body>
+</html>
+ 
